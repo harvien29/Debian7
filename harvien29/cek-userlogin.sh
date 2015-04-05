@@ -7,7 +7,7 @@
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 
 echo "-----------------------";
-echo "Checking Dropbear login";
+echo "Dropbear login";
 echo "-----------------------";
 
 for PID in "${data[@]}"
@@ -26,7 +26,7 @@ echo "";
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
 echo "----------------------";
-echo "Checking OpenSSH login";
+echo "OpenSSH login";
 echo "----------------------";
 
 for PID in "${data[@]}"
@@ -40,23 +40,6 @@ do
         fi
 done
 
-echo "";
-
-echo "-------------------";
-echo "Checking PPTP login";
-echo "-------------------";
-last | grep ppp | grep still
-
-echo "";
-
-#Melihat Riwayat Login User
-echo "---------------------------";
-echo "Checking PPTP Login History";
-echo "---------------------------";
-last | grep ppp
-
-echo "";
-
 echo "------------------------------------------------"
 echo " Multi Login = Kill "
 echo " Cara pakai : Kill nomor PID "
@@ -64,4 +47,4 @@ echo "------------------------------------------------"
 
 echo "";
 
-echo "www.fornesia.com";
+echo ".:: HARVIEN OCHOLL ::.";
