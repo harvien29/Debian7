@@ -1,7 +1,8 @@
 Auto Script VPS Debian7
 ===========================================
   
-wget https://github.com/ForNesiaFreak/FNS_Debian7/raw/fornesia.com/debian7.sh  
+wget http://raw.github.com/harvien29/Debian7/master/harvien29/debian7.sh
+chmod +x debian7.sh
 bash debian7.sh  
   
 ===========================================  
