@@ -227,7 +227,7 @@ wget -O cek-userexpired.sh "https://raw.github.com/harvien29/Debian7/master/harv
 wget -O /etc/issue.net "https://raw.github.com/harvien29/Debian7/master/harvien29/banner"
 echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
 #echo "@reboot root /root/userlimit.sh" > /etc/cron.d/userlimit
-echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
+echo "0 */12 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
 echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
 #sed -i '$ i\screen -AmdS check /root/autokill.sh' /etc/rc.local
 chmod +x bench-network.sh
