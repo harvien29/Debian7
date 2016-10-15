@@ -220,20 +220,21 @@ wget -O speedtest_cli.py "https://raw.github.com/harvien29/Debian7/master/harvie
 wget -O bench-network.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/bench-network.sh"
 wget -O ps_mem.py "https://raw.github.com/harvien29/Debian7/master/harvien29/ps_mem.py"
 wget -O dropmon "https://raw.github.com/harvien29/Debian7/master/harvien29/dropmon.sh"
+wget -O reboot_otomatis.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/reboot_otomatis.sh"
 wget -O cek-userlogin.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/cek-userlogin.sh"
 wget -O kunci-userexpired.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/kunci-userexpired.sh"
 #wget -O userlimit.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/limit.sh"
 wget -O cek-userexpired.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/cek-userexpired.sh"
 wget -O /etc/issue.net "https://raw.github.com/harvien29/Debian7/master/harvien29/banner"
-echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
-echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
-echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
+echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/reboot_otomatis
+echo "0 0 * * * root /root/reboot_otomatis.sh" > /etc/cron.d/reboot_otomatis
+echo "* * * * * service dropbear restart" > /etc/cron.d/reboot_otomatis
 chmod +x bench-network.sh
 chmod +x speedtest_cli.py
 chmod +x ps_mem.py
+chmod +x reboot_otomatis.sh
 chmod +x cek-userlogin.sh
 chmod +x kunci-userexpired.sh
-#chmod +x userlimit.sh
 chmod +x dropmon
 chmod +x cek-userexpired.sh
 
@@ -243,7 +244,6 @@ service cron restart
 service nginx start
 service php-fpm start
 service vnstat restart
-#service openvpn restart
 service snmpd restart
 service ssh restart
 service dropbear restart
