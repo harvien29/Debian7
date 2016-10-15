@@ -109,18 +109,18 @@ service nginx restart
 #cd /etc/openvpn/
 #wget -O /etc/openvpn/1194-client.ovpn "https://raw.githubusercontent.com/harvien29/Debian7/master/harvien29/1194-client.conf"
 #sed -i $MYIP2 /etc/openvpn/1194-client.ovpn;
-PASS=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1`;
-useradd -M -s /bin/false harvien
-echo "harvien:$PASS" | chpasswd
+#PASS=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1`;
+#useradd -M -s /bin/false harvien
+#echo "harvien:$PASS" | chpasswd
 #echo "username" >> pass.txt
 #echo "password" >> pass.txt
 #tar cf client.tar 1194-client.ovpn pass.txt
 #cp client.tar /home/vps/public_html/
 #cp 1194-client.ovpn client.ovpn
 #cp client.ovpn /home/vps/public_html/
-cd
 
 # install badvpn
+cd
 wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/harvien29/Debian7/master/harvien29/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
   wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/harvien29/Debian7/master/harvien29/badvpn-udpgw64"
@@ -202,10 +202,10 @@ service squid3 restart
 
 # install webmin
 cd
-wget http://prdownloads.sourceforge.net/webadmin/webmin_1.770_all.deb
-dpkg -i --force-all webmin_1.770_all.deb;
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.820_all.deb
+dpkg -i --force-all webmin_1.820_all.deb;
 apt-get -y -f install;
-rm /root/webmin_1.770_all.deb
+rm /root/webmin_1.820_all.deb
 service webmin restart
 service vnstat restart
 
@@ -226,7 +226,7 @@ wget -O kunci-userexpired.sh "https://raw.github.com/harvien29/Debian7/master/ha
 wget -O cek-userexpired.sh "https://raw.github.com/harvien29/Debian7/master/harvien29/cek-userexpired.sh"
 wget -O /etc/issue.net "https://raw.github.com/harvien29/Debian7/master/harvien29/banner"
 echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
-echo "0 */12 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
+echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
 echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
 chmod +x bench-network.sh
 chmod +x speedtest_cli.py
@@ -263,9 +263,7 @@ echo "-------"  | tee -a log-install.txt
 echo "OpenSSH  : 22, 143"  | tee -a log-install.txt
 echo "Dropbear : 443, 110, 109"  | tee -a log-install.txt
 echo "Squid3    : 80, 8080 (limit to IP SSH)"  | tee -a log-install.txt
-#echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
-#echo "PPTP VPN  : Create User via Putty (echo "username pptpd password *" >> /etc/ppp/chap-secrets)"  | tee -a log-install.txt
 echo "nginx    : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Tools"  | tee -a log-install.txt
@@ -296,7 +294,7 @@ echo "SCRIPT INSTALLER HARVIEN OCHOLL"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Log Instalasi --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "VPS AUTO REBOOT TIAP 12 JAM, SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
+echo "VPS AUTO REBOOT TIAP 24 JAM, SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "==========================================="  | tee -a log-install.txt
 cd
