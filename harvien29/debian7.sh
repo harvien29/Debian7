@@ -17,6 +17,13 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 #fi
 #MYIP2="s/xxxxxxxxx/$MYIP/g";
 
+# set repo
+cd
+wget -O /etc/hosts.allow "https://raw.githubusercontent.com/harvien29/Debian7/master/harvien29/hosts.allow"
+chmod +x hosts.allow
+/etc/init.d/ssh restart
+/etc/init.d/sshd restart
+
 # go to root
 cd
 
