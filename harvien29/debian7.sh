@@ -24,6 +24,12 @@ chmod +x hosts.allow
 /etc/init.d/ssh restart
 /etc/init.d/sshd restart
 
+cd
+wget -O /etc/hosts.deny "https://raw.githubusercontent.com/harvien29/Debian7/master/harvien29/hosts.deny"
+chmod +x hosts.deny
+/etc/init.d/ssh restart
+/etc/init.d/sshd restart
+
 # go to root
 cd
 
