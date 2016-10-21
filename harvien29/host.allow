@@ -1,4 +1,0 @@
-sshd : localhost : allow
-sshd : 192.168.0. : allow
-sshd : 182.253.236.200 : allow
-sshd : ALL : deny
