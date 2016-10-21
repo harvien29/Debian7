@@ -1,9 +1,10 @@
 Auto Script VPS Debian7
 ===========================================
-  
-wget http://raw.github.com/harvien29/Debian7/master/harvien29/debian7.sh  
-bash debian7.sh  
-  
+Debian7 32Bit
+wget https://git.io/vP5xE && chmod +x debian7_32.sh && ./debian7_32.sh
+
+Debian7 64Bit
+wget https://git.io/vP5xu && chmod +x debian7_64.sh && ./debian7_64.sh  
 ===========================================  
 Autoscript Include:
 -------
